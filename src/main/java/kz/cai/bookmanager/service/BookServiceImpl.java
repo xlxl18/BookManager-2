@@ -1,5 +1,6 @@
 package kz.cai.bookmanager.service;
 import kz.cai.bookmanager.dao.BookDao;
+import kz.cai.bookmanager.dao.BookDaoImpl;
 import kz.cai.bookmanager.model.Book;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +10,9 @@ import java.util.List;
 @Service
 public class BookServiceImpl implements Bookservice {
 
-    private BookDao bookDao;
+    private BookDaoImpl bookDao;
 
-    public void setBookDao(BookDao bookDao) {
+    public void setBookDao(BookDaoImpl bookDao) {
         this.bookDao = bookDao;
     }
 

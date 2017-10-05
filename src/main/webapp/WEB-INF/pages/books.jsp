@@ -65,6 +65,8 @@
       <th width="60">ISBN</th>
       <th width="60">printYear</th>
       <th width="60">readAlready</th>
+      <th width="60">Edit</th>
+      <th width="60">Delete</th>
     </tr>
     <c:forEach items="${listBooks}" var="book">
       <tr>

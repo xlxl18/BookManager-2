@@ -22,11 +22,11 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public void addBook(Book book) {
-        //получаем текущую сессию
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         Session session = this.sessionFactory.getCurrentSession();
-        //сохраняем объект
-        session.persist(book);
-        //Добавить инфу в логгирование
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+        session.save(book);
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         logger.info("Book successfully saved");
     }
 

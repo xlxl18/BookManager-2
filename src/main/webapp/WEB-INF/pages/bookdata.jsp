@@ -70,7 +70,7 @@
   </tr>
   <tr>
     <td>${book.id}</td>
-    <td>${book.titlele}</td>
+    <td>${book.title}</td>
     <td>${book.description}</td>
     <td>${book.author}</td>
     <td>${book.isbn}</td>
