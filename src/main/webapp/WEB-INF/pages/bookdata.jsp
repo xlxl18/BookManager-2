@@ -62,14 +62,20 @@
   <tr>
     <th width="80">ID</th>
     <th width="120">Title</th>
+    <th width="120">Description</th>
     <th width="120">Author</th>
-    <th width="120">Price</th>
+    <th width="60">ISBN</th>
+    <th width="60">printYear</th>
+    <th width="60">readAlready</th>
   </tr>
   <tr>
     <td>${book.id}</td>
-    <td>${book.bookTitle}</td>
-    <td>${book.bookAuthor}</td>
-    <td>${book.price/100}${book.price%100}</td>
+    <td>${book.titlele}</td>
+    <td>${book.description}</td>
+    <td>${book.author}</td>
+    <td>${book.isbn}</td>
+    <td>${book.printYear}</td>
+    <td>${book.readAlready}</td>
   </tr>
 </table>
 </body>

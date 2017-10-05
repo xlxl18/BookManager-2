@@ -1,10 +1,9 @@
 package kz.cai.bookmanager.service;
-
 import kz.cai.bookmanager.dao.BookDao;
 import kz.cai.bookmanager.model.Book;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service

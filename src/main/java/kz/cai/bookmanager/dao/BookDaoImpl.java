@@ -3,17 +3,16 @@ package kz.cai.bookmanager.dao;
 import kz.cai.bookmanager.model.Book;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
-import org.slf4j.Logger;
+
 
 @Repository
 public class BookDaoImpl implements BookDao {
 
-    private static final Logger logger = org.slf4j.LoggerFactory.getLogger(BookDaoImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(BookDaoImpl.class);
 
     private SessionFactory sessionFactory;
 
@@ -35,7 +34,7 @@ public class BookDaoImpl implements BookDao {
     public void updateBook(Book book) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(book);
-        logger.info("Book swa successfully updated;");
+        logger.info("Book  successfully updated;");
     }
 
     @Override
@@ -59,12 +58,13 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<Book> listBooks() {
         Session session = this.sessionFactory.getCurrentSession();
         List<Book> bookList = session.createQuery("from Book").list();
 
-        for(Book book: bookList) {
-            logger.info("Book list: "+ bookList);
+        for(Object book: bookList) {
+            logger.info("Book list: "+ book);
         }
         return bookList;
     }

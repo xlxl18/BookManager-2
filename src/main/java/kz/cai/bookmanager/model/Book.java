@@ -3,21 +3,21 @@ package kz.cai.bookmanager.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "test")
+@Table(name = "book")
 public class Book {
     @Id
-    @Column(name = "ID")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "title")
     private String title;
 
-    @Column(name = "author")
-    private String author;
-
     @Column(name = "description")
     private String description;
+
+    @Column(name = "author")
+    private String author;
 
     @Column(name = "isbn")
     private String isbn;
@@ -52,12 +52,12 @@ public class Book {
         this.author = author;
     }
 
-    public String getDescriprion() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescriprion(String descriprion) {
-        this.description = descriprion;
+    public void setDescriprion(String description) {
+        this.description = description;
     }
 
     public String getIsbn() {
@@ -90,10 +90,10 @@ public class Book {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", descriprion='" + description + '\'' +
+                ", description='" + description + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", printYear=" + printYear +
-                ", readAlread=" + readAlready +
+                ", readAlready=" + readAlready +
                 '}';
     }
 }

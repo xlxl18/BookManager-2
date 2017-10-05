@@ -69,9 +69,8 @@
     <c:forEach items="${listBooks}" var="book">
       <tr>
         <td>${book.id}</td>
-        <td><a href="/bookdata/${book.id}" target="_blank">${book.bookTitle}</a></td>
         <td>${book.title}</td>
-        <td>${book.descriprion}</td>
+        <td>${book.description}</td>
         <td>${book.author}</td>
         <td>${book.isbn}</td>
         <td>${book.printYear}</td>
@@ -90,7 +89,7 @@
 
 <form:form action="${addAction}" commandName="book">
   <table>
-    <c:if test="${!empty book.bookTitle}">
+    <c:if test="${!empty book.title}">
       <tr>
         <td>
           <form:label path="id">
@@ -116,7 +115,7 @@
     <tr>
       <td>
         <form:label path="description">
-          <spring:message text="Author"/>
+          <spring:message text="Description"/>
         </form:label>
       </td>
       <td>
@@ -126,7 +125,7 @@
     <tr>
       <td>
         <form:label path="author">
-          <spring:message text="Price"/>
+          <spring:message text="Author"/>
         </form:label>
       </td>
       <td>
@@ -165,11 +164,11 @@
     </tr>
     <tr>
       <td colspan="2">
-        <c:if test="${!empty book.bookTitle}">
+        <c:if test="${!empty book.title}">
           <input type="submit"
                  value="<spring:message text="Edit Book"/>"/>
         </c:if>
-        <c:if test="${empty book.bookTitle}">
+        <c:if test="${empty book.title}">
           <input type="submit"
                  value="<spring:message text="Add Book"/>"/>
         </c:if>
