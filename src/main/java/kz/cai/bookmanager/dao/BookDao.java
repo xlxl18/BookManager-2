@@ -1,11 +1,10 @@
 package kz.cai.bookmanager.dao;
 
 import kz.cai.bookmanager.model.Book;
-
 import java.util.List;
 
 /**
- * Created by Тима on 04.10.2017.
+ * Created by пїЅпїЅпїЅпїЅ on 04.10.2017.
  */
 public interface BookDao {
 

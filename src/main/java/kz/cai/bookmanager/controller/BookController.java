@@ -1,5 +1,4 @@
 package kz.cai.bookmanager.controller;
-
 import kz.cai.bookmanager.model.Book;
 import kz.cai.bookmanager.service.Bookservice;
 import org.springframework.beans.factory.annotation.Autowired;

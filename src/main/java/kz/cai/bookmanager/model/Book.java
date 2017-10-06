@@ -1,9 +1,9 @@
 package kz.cai.bookmanager.model;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "book")
+
 public class Book {
     @Id
     @Column(name = "id")
@@ -56,7 +56,7 @@ public class Book {
         return description;
     }
 
-    public void setDescriprion(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

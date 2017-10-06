@@ -1,18 +1,17 @@
 package kz.cai.bookmanager.service;
 import kz.cai.bookmanager.dao.BookDao;
-import kz.cai.bookmanager.dao.BookDaoImpl;
 import kz.cai.bookmanager.model.Book;
 import org.springframework.stereotype.Service;
-
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
+
 
 @Service
 public class BookServiceImpl implements Bookservice {
 
-    private BookDaoImpl bookDao;
+    private BookDao bookDao;
 
-    public void setBookDao(BookDaoImpl bookDao) {
+    public void setBookDao(BookDao bookDao) {
         this.bookDao = bookDao;
     }
 
@@ -31,7 +30,7 @@ public class BookServiceImpl implements Bookservice {
     @Override
     @Transactional
     public void removeBook(int id) {
-        this.removeBook(id);
+        this.bookDao.removeBook(id);
     }
 
     @Override

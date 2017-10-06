@@ -47,7 +47,7 @@
   </style>
 </head>
 <body>
-//Ссылка на основую страницу
+
 <a href="../../index.jsp">Back to main menu</a>
 
 <br/>
@@ -71,7 +71,7 @@
     <c:forEach items="${listBooks}" var="book">
       <tr>
         <td>${book.id}</td>
-        <td>${book.title}</td>
+        <td><a href="/bookdata/${book.id}" target="_blank"> ${book.title}</a></td>
         <td>${book.description}</td>
         <td>${book.author}</td>
         <td>${book.isbn}</td>
@@ -95,7 +95,7 @@
       <tr>
         <td>
           <form:label path="id">
-            <spring:message text="ID"/>
+            <spring:message text="id"/>
           </form:label>
         </td>
         <td>
