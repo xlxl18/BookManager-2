@@ -29,7 +29,7 @@ public class Book {
     private boolean readAlready;
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -37,7 +37,7 @@ public class Book {
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -45,7 +45,7 @@ public class Book {
     }
 
     public String getAuthor() {
-        return author;
+        return this.author;
     }
 
     public void setAuthor(String author) {
@@ -53,7 +53,7 @@ public class Book {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -61,7 +61,7 @@ public class Book {
     }
 
     public String getIsbn() {
-        return isbn;
+        return this.isbn;
     }
 
     public void setIsbn(String isbn) {
@@ -69,7 +69,7 @@ public class Book {
     }
 
     public int getPrintYear() {
-        return printYear;
+        return this.printYear;
     }
 
     public void setPrintYear(int printYear) {
@@ -77,7 +77,7 @@ public class Book {
     }
 
     public boolean isReadAlready() {
-        return readAlready;
+        return this.readAlready;
     }
 
     public void setReadAlready(boolean readAlready) {

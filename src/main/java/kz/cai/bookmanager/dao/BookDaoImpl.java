@@ -22,11 +22,8 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public void addBook(Book book) {
-        //�������� ������� ������
         Session session = this.sessionFactory.getCurrentSession();
-        //��������� ������
-        session.save(book);
-        //�������� ���� � ������������
+        session.persist(book);
         logger.info("Book successfully saved");
     }
 
@@ -51,9 +48,10 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public Book getBookById(int id) {
-        Session session = this.sessionFactory.getCurrentSession();
+        Session session =this.sessionFactory.getCurrentSession();
         Book book = (Book) session.load(Book.class, new Integer(id));
-        logger.info("Book successfully loaded");
+        logger.info("Book successfully loaded. Book details: " + book);
+
         return book;
     }
 

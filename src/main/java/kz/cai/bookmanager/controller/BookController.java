@@ -16,8 +16,8 @@ public class BookController {
 
     @Autowired(required = true)
     @Qualifier(value = "bookService")
-    public void setBookservice(Bookservice bookservice) {
-        this.bookService = bookservice;
+    public void setBookservice(Bookservice bookService) {
+        this.bookService = bookService;
     }
 
     @RequestMapping(value = "books", method = RequestMethod.GET)

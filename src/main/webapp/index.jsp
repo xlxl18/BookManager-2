@@ -6,6 +6,6 @@
     <title>Books</title>
 </head>
 <body>
-<a href="<c:url value="/books"/>">Books list</a>
+<a href="<c:url value="/books"/>" target="_blank">Books list</a>
 </body>
 </html>
