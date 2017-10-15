@@ -1,8 +1,8 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
-<%@ page session="false" %>
 <html>
 <head>
   <title>Books Page</title>
@@ -55,7 +55,7 @@
 
 <h1>Book List</h1>
 
-<c:if test="${!empty listBooks}">
+<c:if test="${!empty listBooks.content}">
   <table class="tg">
     <tr>
       <th width="80">ID</th>
@@ -68,7 +68,7 @@
       <th width="60">Edit</th>
       <th width="60">Delete</th>
     </tr>
-    <c:forEach items="${listBooks}" var="book">
+    <c:forEach items="${listBooks.content}" var="book">
       <tr>
         <td>${book.id}</td>
         <td><a href="/bookdata/${book.id}" target="_blank"> ${book.title}</a></td>
@@ -76,20 +76,34 @@
         <td>${book.author}</td>
         <td>${book.isbn}</td>
         <td>${book.printYear}</td>
-        <td>${book.readAlready}</td>
+        <td>
+          <c:choose>
+            <c:when test="${book.readAlready}">
+              Прочитана
+            </c:when>
+            <c:otherwise>
+              Не прочитана
+            </c:otherwise>
+            </c:choose>
+        </td>
+
+
         <td><a href="<c:url value='/edit/${book.id}'/>">Edit</a></td>
         <td><a href="<c:url value='/remove/${book.id}'/>">Delete</a></td>
       </tr>
     </c:forEach>
   </table>
 </c:if>
+<c:forEach begin="0" end="${listBooks.totalPages - 1}" var="val">
+  <a href="<c:url value="/books?page=${val}"/>"><c:out value="${val + 1}"/></a>
+</c:forEach>
 
 
 <h1>Add a Book</h1>
 
 <c:url var="addAction" value="/books/add"/>
 
-<form:form action="${addAction}" commandName="book">
+<form:form action="${addAction}" modelAttribute="book">
   <table>
     <c:if test="${!empty book.title}">
       <tr>

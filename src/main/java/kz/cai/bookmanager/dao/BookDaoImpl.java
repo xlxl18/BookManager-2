@@ -1,11 +1,20 @@
 package kz.cai.bookmanager.dao;
 
 import kz.cai.bookmanager.model.Book;
+import org.hibernate.ScrollMode;
+import org.hibernate.ScrollableResults;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
+
+import javax.persistence.criteria.CriteriaQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -57,13 +66,34 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Book> listBooks() {
+    public Page<Book> listBooks(Pageable pageable) {
         Session session = this.sessionFactory.getCurrentSession();
-        List<Book> bookList = session.createQuery("from Book").list();
+        CriteriaQuery cq = session.getCriteriaBuilder().createQuery(Book.class);
+        cq.from(Book.class);
+        Query query = session.createQuery(cq);
 
-        for(Object book: bookList) {
-            logger.info("Book list: "+ book);
+        ScrollableResults resultScroll = query.scroll(ScrollMode.FORWARD_ONLY);
+        resultScroll.first();
+        resultScroll.scroll((int) pageable.getOffset());
+        List<Book> bookList = new ArrayList<>();
+        int i = 0;
+        while (pageable.getPageSize() > i++) {
+        bookList.add((Book) resultScroll.get(0));
+            if (!resultScroll.next())
+                break;
         }
-        return bookList;
-    }
+        resultScroll.last();
+        long total = resultScroll.getRowNumber()+1;
+        PageImpl<Book> page = new PageImpl<Book>(bookList,pageable, total);
+        return page;
+//        Session session = this.sessionFactory.getCurrentSession();
+//        List<Book> bookList = session.createQuery("from Book").list();
+//
+//
+//        for(Object book: bookList) {
+//            logger.info("Book list: "+ book);
+//        }
+ //
+        //  return bookList;
+   }
 }

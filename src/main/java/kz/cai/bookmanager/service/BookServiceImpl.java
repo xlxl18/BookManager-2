@@ -1,13 +1,15 @@
 package kz.cai.bookmanager.service;
 import kz.cai.bookmanager.dao.BookDao;
 import kz.cai.bookmanager.model.Book;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.List;
+
 
 
 @Service
-public class BookServiceImpl implements Bookservice {
+public class BookServiceImpl implements BookService {
 
     private BookDao bookDao;
 
@@ -41,7 +43,7 @@ public class BookServiceImpl implements Bookservice {
 
     @Override
     @Transactional
-    public List<Book> listBooks() {
-       return  this.bookDao.listBooks();
+    public Page<Book> listBooks(Pageable pageable) {
+       return  this.bookDao.listBooks(pageable);
     }
 }
