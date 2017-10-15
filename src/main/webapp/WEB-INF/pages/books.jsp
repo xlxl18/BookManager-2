@@ -6,6 +6,8 @@
 <html>
 <head>
   <title>Books Page</title>
+  <link rel="stylesheet"
+        href='<c:url value="/resources/bootstrap/css/bootstrap.min.css"/>'>
 
   <style type="text/css">
     .tg {
